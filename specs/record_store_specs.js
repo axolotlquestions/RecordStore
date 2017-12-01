@@ -10,9 +10,11 @@ describe("Record Store", function(){
   })
 
   it("should have a name", function(){
-    assert.strictEqual(record_store.name, "Big Al's Music Emporium")
+    assert.strictEqual(record_store.name, "Big Al's Music Emporium");
   });
-  it("should have a city");
+  it("should have a city", function(){
+    assert.strictEqual(record_store.city, "Glasgow");
+  });
   it("should start with an empty inventory");
 
 })
