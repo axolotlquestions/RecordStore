@@ -18,5 +18,8 @@ describe("Record Store", function(){
   it("should start with an empty inventory", function(){
     assert.strictEqual(record_store.inventory.length, 0)
   });
+  it("should have a balance", function(){
+    assert.strictEqual(record_store.balance, 100)
+  });
 
 })
