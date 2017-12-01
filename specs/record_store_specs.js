@@ -29,6 +29,11 @@ describe("Record Store", function(){
   it("should be able to add a record to its inventory", function(){
     record_store.add(record1);
     assert.strictEqual(record_store.inventory.length, 1);
+  });
+  it("should be able to list it's inventory", function(){
+    record_store.add(record1);
+    record_store.add(record2);
+    assert.strictEqual(record_store.inventoryList(), "Purple Rain,Led Zeppelin IV" )
   })
 
 })

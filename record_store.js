@@ -9,6 +9,11 @@ Record_store.prototype = {
 
     add:function(record){
       this.inventory.push(record);
+    },
+
+    inventoryList: function(){
+    return this.inventory.map(function(record){return record.title}).toString(" ");
+
     }
 };
 
