@@ -1,3 +1,5 @@
+var _ = require("lodash");
+
 var Record_store = function(name, city){
   this.name = name;
   this.city = city;
@@ -12,8 +14,12 @@ Record_store.prototype = {
     },
 
     inventoryList: function(){
-    return this.inventory.map(function(record){return record.title}).toString(" ");
+      return this.inventory.map(function(record){return record.title}).toString();
+    },
 
+    sell:function(record){
+      this.balance += record.price;
+      _.pull(this.inventory, record);
     }
 };
 
