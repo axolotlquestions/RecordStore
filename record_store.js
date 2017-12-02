@@ -17,10 +17,19 @@ Record_store.prototype = {
       return this.inventory.map(function(record){return record.title}).toString();
     },
 
-    sell:function(record){
+    sell: function(record){
       this.balance += record.price;
       _.pull(this.inventory, record);
-    }
+    },
+
+    finances: function(){
+      var stock = _.sumBy(this.inventory, function(item){
+        return item.price
+      });
+      return "Cash = £" +this.balance + ", Stock = £" + stock;
+    },
+
+    
 };
 
 

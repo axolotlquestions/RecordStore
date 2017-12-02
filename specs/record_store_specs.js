@@ -45,8 +45,14 @@ describe("Record Store", function(){
     record_store.add(record1);
     record_store.add(record2);
     record_store.sell(record2)
-    assert.strictEqual(record_store.inventory.length, 1)
-    assert.strictEqual(record_store.balance, 120)
+    assert.strictEqual(record_store.inventory.length, 1);
+    assert.strictEqual(record_store.balance, 120);
+  });
+
+  it("should have a method that reports on its financial situation", function(){
+    record_store.add(record1);
+    record_store.add(record2);
+    assert.strictEqual(record_store.finances(), "Cash = £100, Stock = £30")
   })
 
 })
