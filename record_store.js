@@ -29,7 +29,12 @@ Record_store.prototype = {
       return "Cash = £" +this.balance + ", Stock = £" + stock;
     },
 
-    
+    byGenre: function(genre){
+      var result = _.filter(this.inventory, function(record){
+        return record.genre === genre;
+      })
+      return result.map(function(record){return record.title}).toString();
+    }
 };
 
 

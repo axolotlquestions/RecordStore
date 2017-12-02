@@ -53,6 +53,15 @@ describe("Record Store", function(){
     record_store.add(record1);
     record_store.add(record2);
     assert.strictEqual(record_store.finances(), "Cash = £100, Stock = £30")
+    record_store.sell(record1);
+    assert.strictEqual(record_store.finances(), "Cash = £110, Stock = £20")
+  });
+
+  it("should be able to filter stock by genre", function(){
+    record_store.add(record1);
+    record_store.add(record2);
+    assert.strictEqual(record_store.byGenre("Funk"), "Purple Rain")
+    assert.strictEqual(record_store.byGenre("Rock"), "Led Zeppelin IV")
   })
 
 })
