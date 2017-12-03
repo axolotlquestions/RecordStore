@@ -62,6 +62,8 @@ describe("Record Store", function(){
     record_store.add(record2);
     assert.strictEqual(record_store.byGenre("Funk"), "Purple Rain")
     assert.strictEqual(record_store.byGenre("Rock"), "Led Zeppelin IV")
-  })
+  });
+
+  
 
 })
