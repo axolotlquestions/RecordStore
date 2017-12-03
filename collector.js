@@ -32,6 +32,10 @@ Collector.prototype = {
     return _.sumBy(result, function(record){
       return record.price;
     })
+  },
+
+  mostValuable: function(){
+    return _.maxBy(this.collection, "price")
   }
 
 };
