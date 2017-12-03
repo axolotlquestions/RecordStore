@@ -39,7 +39,11 @@ describe("Collector", function(){
     assert.strictEqual(collector1.collection.length, 0);
   });
 
-  it("should be able to view the total value of their collection");
+  it("should be able to view the total value of their collection", function(){
+    collector1.buy(record1);
+    collector1.buy(record2);
+    assert.strictEqual(collector1.valueOfCollection(), 30);
+  });
   it("should be able to view the total value of all records of a given Genre");
   it("should be able to view their most valuable record");
   it("should be able to sort their records by value. (ascending or descending)");

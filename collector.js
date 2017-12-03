@@ -13,10 +13,17 @@ Collector.prototype = {
       this.collection.push(record)
     }
   },
+
   sell: function(record){
     this.cash += record.price;
     _.pull(this.collection, record);
   },
+
+  valueOfCollection: function(){
+     return _.sumBy(this.collection, function(item){
+      return item.price;
+    });
+  }
 
 };
 
