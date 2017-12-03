@@ -5,16 +5,19 @@ var Collector = require("../collector.js")
 describe("Collector", function(){
 
   var collector1;
+  var collector2;
   var record1;
   var record2;
   var record3
 
   beforeEach(function(){
     collector1 = new Collector("Alice");
+    collector2 = new Collector("Bob");
     record1 = new Record("Prince", "Purple Rain", "Funk", 10);
     record2 = new Record("Led Zeppelin", "Led Zeppelin IV", "Rock", 20);
     record3 = new Record("Parliament", "Mothership Connection", "Funk", 75);
-    record4 = new Record("AC-DC", "High Voltage", "Rock", 15)
+    record4 = new Record("AC-DC", "High Voltage", "Rock", 15);
+    record5 = new Record("Swamp Dogg", "Rat On", "Funk", 20)
   });
 
   it("should have cash" , function(){
@@ -65,10 +68,16 @@ describe("Collector", function(){
     collector1.buy(record2);
     collector1.buy(record4);
     assert.deepStrictEqual(collector1.sortByValueAscending(), [record1, record4, record2]);
+    assert.deepStrictEqual(collector1.sortByValueDescending(), [record2, record4, record1]);
   });
 
-
-  it("should be able to compare the value of their collection with another RecordCollector");
+  it("should be able to compare the value of their collection with another RecordCollector", function(){
+    collector1.buy(record1);
+    collector1.buy(record5);
+    collector2.buy(record2);
+    collector2.buy(record4);
+    assert.strictEqual(collector1.compare(collector2), "Alice's collection is worth £30, Bob's collection is worth £35")
+  });
 
 
 })

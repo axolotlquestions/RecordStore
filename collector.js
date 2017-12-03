@@ -40,6 +40,14 @@ Collector.prototype = {
 
   sortByValueAscending: function(){
     return _.sortBy(this.collection, "price");
+  },
+
+  sortByValueDescending: function(){
+    return _.sortBy(this.collection, "price").reverse();
+  },
+
+  compare: function(collector){
+    return this.name + "'s collection is worth £" + this.valueOfCollection() + ", " + collector.name + "'s collection is worth £" + collector.valueOfCollection()
   }
 
 };
