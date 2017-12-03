@@ -14,6 +14,7 @@ describe("Collector", function(){
     record1 = new Record("Prince", "Purple Rain", "Funk", 10);
     record2 = new Record("Led Zeppelin", "Led Zeppelin IV", "Rock", 20);
     record3 = new Record("Parliament", "Mothership Connection", "Funk", 75);
+    record4 = new Record("AC-DC", "High Voltage", "Rock", 15)
   });
 
   it("should have cash" , function(){
@@ -44,7 +45,13 @@ describe("Collector", function(){
     collector1.buy(record2);
     assert.strictEqual(collector1.valueOfCollection(), 30);
   });
-  it("should be able to view the total value of all records of a given Genre");
+
+  it("should be able to view the total value of all records of a given Genre", function(){
+    collector1.buy(record1);
+    collector1.buy(record2);
+    collector1.buy(record4);
+    assert.strictEqual(collector1.genreValue("Rock"), 35);
+  });
   it("should be able to view their most valuable record");
   it("should be able to sort their records by value. (ascending or descending)");
   it("should be able to compare the value of their collection with another RecordCollector");

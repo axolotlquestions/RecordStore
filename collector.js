@@ -20,9 +20,18 @@ Collector.prototype = {
   },
 
   valueOfCollection: function(){
-     return _.sumBy(this.collection, function(item){
-      return item.price;
+     return _.sumBy(this.collection, function(record){
+      return record.price;
     });
+  },
+
+  genreValue: function(genre){
+    var result = _.filter(this.collection, function(record){
+      return record.genre === genre;
+    })
+    return _.sumBy(result, function(record){
+      return record.price;
+    })
   }
 
 };
