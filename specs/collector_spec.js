@@ -57,10 +57,16 @@ describe("Collector", function(){
     collector1.buy(record1);
     collector1.buy(record2);
     collector1.buy(record4);
-    assert.strictEqual(collector1.mostValuable(), record2)
+    assert.strictEqual(collector1.mostValuable(), record2);
   });
 
-  it("should be able to sort their records by value. (ascending or descending)");
+  it("should be able to sort their records by value. (ascending or descending)", function(){
+    collector1.buy(record1);
+    collector1.buy(record2);
+    collector1.buy(record4);
+    assert.deepStrictEqual(collector1.sortByValueAscending(), [record1, record4, record2]);
+  });
+
 
   it("should be able to compare the value of their collection with another RecordCollector");
 

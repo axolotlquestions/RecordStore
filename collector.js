@@ -35,7 +35,11 @@ Collector.prototype = {
   },
 
   mostValuable: function(){
-    return _.maxBy(this.collection, "price")
+    return _.maxBy(this.collection, "price");
+  },
+
+  sortByValueAscending: function(){
+    return _.sortBy(this.collection, "price");
   }
 
 };
